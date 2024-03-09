@@ -1,12 +1,12 @@
-## 小新Pad Pro 12.7（SM8250）TWRP Device Tree
+## Xioaxin Pad Pro 12.7（SM8250）TWRP Device Tree
 
-### 已修复                              
+### It has been fixed                              
 
-- [x] 解密
+- [x] Decrypt
 
-- [x] 触控
+- [x] Touch
 
-- [x] 电量显示
+- [x] Power display
 
 - [x] USB
 
@@ -18,21 +18,29 @@
 
 - [x] FastbootD
 
-### 未修复
+### not fixed
 
-- [ ] 屏幕只有一小条可以显示
+- [ ] The screen only has a small bar to display
 
-其他功能都是默认好的
+All other functions are by default
 
-### 问题
+### problem
 
-现在的问题是联想小新这块平板的内核尚未开源，所以显示问题还未解决，目前定位到的问题是dsc
+The current problem is that the core of Lenovo Xiaoxin’s tablet has not yet been open sourced, so the display problem has not been solved. The problem currently identified is dsc
 
-解决预想的方案是禁用dfps：
+The expected solution is to disable dfps:
 
-尝试修改dtbo中
+- [ ] Try to modify the dtbo - Does not work
+
+Most likely the problem is in selinux permission
+
+- avc: denied { read write } for name="card0"
+- avc: denied { open } for path="/dev/dri/card0"
+- avc: denied { ioctl } for path="/dev/dri/card0"
+- avc: denied { module_load } for path="/vendor/lib/modules/lcd.ko"
+- etc
 
 
 
-这个TWRP的内核是基于440版本，如果你的版本和这个不一致，需要重新导入同版本的内核，否则会导致系统无法启动
+The kernel of this TWRP is based on version 575. If your version is inconsistent with this version, you need to re-import the kernel of the same version, otherwise the system will not start.
 
