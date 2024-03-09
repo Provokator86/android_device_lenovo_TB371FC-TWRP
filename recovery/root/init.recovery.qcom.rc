@@ -14,8 +14,7 @@ on post-fs
 on boot
     start health-hal-2-1
     wait /tmp/recovery.log
-    stop recovery
-    start recovery
+    setprop sys.usb.config adb
     
 on property:graphics.display.kernel_idle_timer.enabled=true
     # Switch display mode to 60hz when idle
